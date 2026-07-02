@@ -1,4 +1,4 @@
-# Knotted & Bright — Handmade Bracelets Shop
+# mukiyodesign — Handmade Bracelets Shop
 
 A bold, colorful storefront for a handmade bracelet business, built with
 Next.js (App Router), Tailwind CSS, and Stripe Checkout.

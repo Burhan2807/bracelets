@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-const CONTACT_EMAIL = "hello@knottedandbright.example";
+const CONTACT_EMAIL = "hello@mukiyodesign.example";
 
 export default function ContactPage() {
   const [name, setName] = useState("");

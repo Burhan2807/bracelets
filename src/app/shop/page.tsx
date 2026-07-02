@@ -3,7 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Shop | Knotted & Bright",
+  title: "Shop | mukiyodesign",
 };
 
 export default function ShopPage() {

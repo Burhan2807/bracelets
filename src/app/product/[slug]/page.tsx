@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
-  return { title: product ? `${product.name} | Knotted & Bright` : "Not found" };
+  return { title: product ? `${product.name} | mukiyodesign` : "Not found" };
 }
 
 export default async function ProductPage({

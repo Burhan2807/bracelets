@@ -20,7 +20,7 @@ export default function Header() {
           href="/"
           className="font-display text-2xl italic tracking-tight text-foreground"
         >
-          Knotted &amp; Bright
+          mukiyodesign
         </Link>
 
         <nav className="hidden gap-9 text-sm font-medium tracking-wide text-foreground/70 sm:flex">

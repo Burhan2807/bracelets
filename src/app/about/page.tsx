@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About | Knotted & Bright",
+  title: "About | mukiyodesign",
 };
 
 export default function AboutPage() {
@@ -10,7 +10,7 @@ export default function AboutPage() {
       <h1 className="font-display text-4xl italic">Our Story</h1>
       <div className="mt-6 flex flex-col gap-4 text-foreground/70">
         <p>
-          Knotted &amp; Bright started at a kitchen table with a spool of
+          mukiyodesign started at a kitchen table with a spool of
           cord, a handful of beads, and way too much free time. What began
           as bracelets for friends turned into a small, colorful workshop
           where every single piece is still tied, braided, or strung by

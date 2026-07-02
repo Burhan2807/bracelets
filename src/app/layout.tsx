@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Knotted & Bright | Handmade Bracelets",
+  title: "mukiyodesign | Handmade Bracelets",
   description:
     "Colorful, hand-knotted bracelets made in small batches. Shop friendship bands, beaded wraps, and charm stacks.",
 };
