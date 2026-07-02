@@ -16,7 +16,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <h3 className="font-display text-lg">{product.name}</h3>
         <p className="flex-1 text-sm text-foreground/60">{product.tagline}</p>
         <p className="mt-2 font-display text-lg text-brand-pink">
-          ${product.price}
+          £{product.price}
         </p>
       </div>
     </Link>

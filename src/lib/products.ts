@@ -1,7 +1,7 @@
 export type Product = {
   slug: string;
   name: string;
-  price: number; // USD
+  price: number; // GBP
   colors: [string, string]; // gradient pair for placeholder art
   tagline: string;
   description: string;

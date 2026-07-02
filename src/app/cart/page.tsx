@@ -66,7 +66,7 @@ export default function CartPage() {
             />
             <div className="flex-1">
               <p className="font-display">{product.name}</p>
-              <p className="text-sm text-foreground/60">${product.price} each</p>
+              <p className="text-sm text-foreground/60">£{product.price} each</p>
             </div>
             <div className="flex items-center rounded-full border border-foreground/20">
               <button
@@ -90,7 +90,7 @@ export default function CartPage() {
               </button>
             </div>
             <p className="w-16 text-right font-medium">
-              ${product.price * quantity}
+              £{product.price * quantity}
             </p>
             <button
               type="button"
@@ -105,7 +105,7 @@ export default function CartPage() {
       </div>
 
       <div className="mt-10 flex flex-col items-end gap-4">
-        <p className="font-display text-2xl">Total: ${totalPrice}</p>
+        <p className="font-display text-2xl">Total: £{totalPrice}</p>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="button"

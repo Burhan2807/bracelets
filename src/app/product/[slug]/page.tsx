@@ -44,7 +44,7 @@ export default async function ProductPage({
         <div className="flex flex-col gap-4">
           <h1 className="font-display text-4xl italic">{product.name}</h1>
           <p className="font-display text-2xl text-brand-pink">
-            ${product.price}
+            £{product.price}
           </p>
           <p className="text-foreground/70">{product.description}</p>
           <div>

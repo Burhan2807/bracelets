@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     line_items.push({
       quantity: item.quantity,
       price_data: {
-        currency: "usd",
+        currency: "gbp",
         unit_amount: Math.round(product.price * 100),
         product_data: { name: product.name },
       },
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     line_items,
     success_url: `${origin}/success`,
     cancel_url: `${origin}/cancel`,
-    shipping_address_collection: { allowed_countries: ["US", "CA", "GB", "AU"] },
+    shipping_address_collection: { allowed_countries: ["GB", "IE", "US", "CA", "AU"] },
   });
 
   return NextResponse.json({ url: session.url });
