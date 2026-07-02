@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Knotted & Bright — Handmade Bracelets Shop
 
-## Getting Started
+A bold, colorful storefront for a handmade bracelet business, built with
+Next.js (App Router), Tailwind CSS, and Stripe Checkout.
 
-First, run the development server:
+## What's included
+
+- Home, Shop, Product detail, Cart, About, and Contact pages
+- 6 placeholder products in [`src/lib/products.ts`](src/lib/products.ts) —
+  edit this file to add your real bracelets, prices, and descriptions
+- A cart that persists in the browser (`localStorage`)
+- A working Stripe Checkout flow (`src/app/api/checkout/route.ts`) that looks
+  up prices server-side, so nothing can be tampered with from the browser
+- Colorful placeholder product "photos" generated with SVG — swap these for
+  real photos whenever you have them (see below)
+
+## Running it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setting up Stripe (for real checkout)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a free account at [stripe.com](https://dashboard.stripe.com/register).
+2. In the Stripe Dashboard, grab your **test mode** API keys from
+   *Developers → API keys*.
+3. Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+4. Fill in your keys:
+   ```
+   STRIPE_SECRET_KEY=sk_test_...
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+   ```
+5. Restart `npm run dev`. The Cart page's Checkout button will now redirect
+   to a real Stripe Checkout page. Use Stripe's test card `4242 4242 4242 4242`
+   with any future expiry/CVC to test a full purchase.
+6. When you're ready to accept real payments, activate your Stripe account
+   and swap the test keys for your live keys (`sk_live_...`).
 
-## Learn More
+Without Stripe keys configured, the Checkout button will show a friendly
+error instead of crashing.
 
-To learn more about Next.js, take a look at the following resources:
+## Adding your real products & photos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit [`src/lib/products.ts`](src/lib/products.ts). Each product currently
+uses a generated colorful placeholder image. To use a real photo instead:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Add your image to the `public/` folder (e.g. `public/products/sunset.jpg`).
+2. Replace the `<PlaceholderImage />` usage for that product with Next.js's
+   `<Image src="/products/sunset.jpg" ... />` component, in
+   [`src/components/ProductCard.tsx`](src/components/ProductCard.tsx) and
+   [`src/app/product/[slug]/page.tsx`](src/app/product/%5Bslug%5D/page.tsx).
 
-## Deploy on Vercel
+## Updating the contact email
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact form opens the visitor's email client via a `mailto:` link.
+Update `CONTACT_EMAIL` in
+[`src/app/contact/page.tsx`](src/app/contact/page.tsx) with your real
+address.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploying
+
+The easiest option is [Vercel](https://vercel.com/new) (made by the Next.js
+team, free tier available):
+
+1. Push this project to a GitHub repo.
+2. Import it at [vercel.com/new](https://vercel.com/new).
+3. Add your `STRIPE_SECRET_KEY` and `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+   as environment variables in the Vercel project settings.
+4. Deploy — Vercel builds and hosts it automatically.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router, TypeScript)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Stripe Checkout](https://stripe.com/docs/payments/checkout)
