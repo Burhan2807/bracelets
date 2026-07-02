@@ -1,18 +1,18 @@
 type PlaceholderImageProps = {
   colors: [string, string];
-  emoji: string;
   className?: string;
 };
 
 export default function PlaceholderImage({
   colors,
-  emoji,
   className,
 }: PlaceholderImageProps) {
   const gradientId = `grad-${colors[0].replace("#", "")}-${colors[1].replace(
     "#",
     ""
   )}`;
+
+  const beadAngles = [0, 40, 80, 130, 180, 220, 260, 310];
 
   return (
     <svg
@@ -28,16 +28,28 @@ export default function PlaceholderImage({
         </linearGradient>
       </defs>
       <rect width="400" height="400" fill={`url(#${gradientId})`} />
-      <circle cx="200" cy="200" r="90" fill="rgba(255,255,255,0.18)" />
-      <text
-        x="50%"
-        y="52%"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontSize="90"
-      >
-        {emoji}
-      </text>
+      <circle
+        cx="200"
+        cy="200"
+        r="108"
+        fill="none"
+        stroke="rgba(255,255,255,0.55)"
+        strokeWidth="1.5"
+      />
+      {beadAngles.map((angle) => {
+        const rad = (angle * Math.PI) / 180;
+        const x = 200 + 108 * Math.cos(rad);
+        const y = 200 + 108 * Math.sin(rad);
+        return (
+          <circle
+            key={angle}
+            cx={x}
+            cy={y}
+            r="7"
+            fill="rgba(255,255,255,0.85)"
+          />
+        );
+      })}
     </svg>
   );
 }

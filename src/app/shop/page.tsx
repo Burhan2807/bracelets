@@ -10,10 +10,8 @@ export default function ShopPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <div className="mb-10 text-center">
-        <h1 className="font-display text-4xl font-extrabold">
-          The Full Collection
-        </h1>
-        <p className="mt-3 text-foreground/70">
+        <h1 className="font-display text-4xl italic">The Full Collection</h1>
+        <p className="mt-3 text-foreground/60">
           Six hand-knotted styles, made in small batches.
         </p>
       </div>

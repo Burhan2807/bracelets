@@ -32,27 +32,26 @@ export default async function ProductPage({
     <div className="mx-auto max-w-5xl px-6 py-12">
       <Link
         href="/shop"
-        className="mb-8 inline-block font-display font-semibold text-brand-purple hover:text-brand-pink"
+        className="mb-8 inline-block text-sm font-medium text-foreground/60 hover:text-foreground"
       >
         ← Back to shop
       </Link>
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
         <PlaceholderImage
           colors={product.colors}
-          emoji={product.emoji}
-          className="w-full rounded-3xl shadow-lg"
+          className="w-full rounded-xl border border-border"
         />
         <div className="flex flex-col gap-4">
-          <h1 className="font-display text-4xl font-extrabold">
-            {product.name}
-          </h1>
-          <p className="font-display text-2xl font-bold text-brand-pink">
+          <h1 className="font-display text-4xl italic">{product.name}</h1>
+          <p className="font-display text-2xl text-brand-pink">
             ${product.price}
           </p>
-          <p className="text-foreground/80">{product.description}</p>
+          <p className="text-foreground/70">{product.description}</p>
           <div>
-            <h2 className="font-display font-bold">Materials</h2>
-            <ul className="mt-1 list-inside list-disc text-sm text-foreground/70">
+            <h2 className="text-sm font-medium tracking-wide uppercase text-foreground/50">
+              Materials
+            </h2>
+            <ul className="mt-2 list-inside list-disc text-sm text-foreground/70">
               {product.materials.map((material) => (
                 <li key={material}>{material}</li>
               ))}

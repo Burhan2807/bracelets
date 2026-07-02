@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="font-display text-4xl font-extrabold">Our Story</h1>
-      <div className="mt-6 flex flex-col gap-4 text-foreground/80">
+      <h1 className="font-display text-4xl italic">Our Story</h1>
+      <div className="mt-6 flex flex-col gap-4 text-foreground/70">
         <p>
           Knotted &amp; Bright started at a kitchen table with a spool of
           cord, a handful of beads, and way too much free time. What began

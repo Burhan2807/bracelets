@@ -16,22 +16,20 @@ export default function AddToCartControls({ slug }: { slug: string }) {
 
   return (
     <div className="flex flex-wrap items-center gap-4">
-      <div className="flex items-center rounded-full border-2 border-brand-purple">
+      <div className="flex items-center rounded-full border border-foreground/20">
         <button
           type="button"
           onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-          className="px-4 py-2 font-display text-lg font-bold text-brand-purple"
+          className="px-4 py-2 text-base text-foreground/70 hover:text-foreground"
           aria-label="Decrease quantity"
         >
           −
         </button>
-        <span className="w-8 text-center font-display font-bold">
-          {quantity}
-        </span>
+        <span className="w-6 text-center text-sm font-medium">{quantity}</span>
         <button
           type="button"
           onClick={() => setQuantity((q) => q + 1)}
-          className="px-4 py-2 font-display text-lg font-bold text-brand-purple"
+          className="px-4 py-2 text-base text-foreground/70 hover:text-foreground"
           aria-label="Increase quantity"
         >
           +
@@ -40,9 +38,9 @@ export default function AddToCartControls({ slug }: { slug: string }) {
       <button
         type="button"
         onClick={handleAdd}
-        className="rounded-full bg-brand-pink px-8 py-3 font-display text-lg font-bold text-white shadow-md transition-transform hover:scale-105"
+        className="rounded-full bg-foreground px-8 py-3 text-sm font-medium tracking-wide text-background transition-opacity hover:opacity-85"
       >
-        {added ? "Added! 🎉" : "Add to Cart"}
+        {added ? "Added" : "Add to Cart"}
       </button>
     </div>
   );

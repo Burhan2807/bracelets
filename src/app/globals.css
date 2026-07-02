@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffaf3;
-  --foreground: #241436;
-  --brand-pink: #ff2d78;
-  --brand-purple: #7c3aed;
-  --brand-orange: #ff9f1c;
-  --brand-teal: #06b6a4;
+  --background: #faf6f0;
+  --foreground: #2b2420;
+  --brand-pink: #a63d5f;
+  --brand-purple: #4d3f6b;
+  --brand-orange: #b9773f;
+  --brand-teal: #2f6b5e;
+  --card: #ffffff;
+  --border: #e7dfd3;
 }
 
 @theme inline {
@@ -16,8 +18,10 @@
   --color-brand-purple: var(--brand-purple);
   --color-brand-orange: var(--brand-orange);
   --color-brand-teal: var(--brand-teal);
-  --font-display: var(--font-baloo);
-  --font-sans: var(--font-nunito);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
 }
 
 body {
@@ -26,12 +30,7 @@ body {
 }
 
 .brand-gradient-text {
-  background: linear-gradient(
-    90deg,
-    var(--brand-pink),
-    var(--brand-purple),
-    var(--brand-orange)
-  );
+  background: linear-gradient(100deg, var(--brand-purple), var(--brand-pink));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

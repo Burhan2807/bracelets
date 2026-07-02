@@ -36,13 +36,13 @@ export default function CartPage() {
   if (lines.length === 0) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
-        <h1 className="font-display text-3xl font-bold">Your cart is empty</h1>
-        <p className="mt-3 text-foreground/70">
+        <h1 className="font-display text-3xl italic">Your cart is empty</h1>
+        <p className="mt-3 text-foreground/60">
           Looks like you haven&apos;t added any bracelets yet.
         </p>
         <Link
           href="/shop"
-          className="mt-6 inline-block rounded-full bg-brand-pink px-8 py-3 font-display font-bold text-white shadow-md transition-transform hover:scale-105"
+          className="mt-6 inline-block rounded-full bg-foreground px-8 py-3 text-sm font-medium tracking-wide text-background transition-opacity hover:opacity-85"
         >
           Browse the Shop
         </Link>
@@ -52,51 +52,50 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
-      <h1 className="font-display text-4xl font-extrabold">Your Cart</h1>
+      <h1 className="font-display text-4xl italic">Your Cart</h1>
 
-      <div className="mt-8 flex flex-col gap-6">
+      <div className="mt-8 flex flex-col gap-4">
         {lines.map(({ product, quantity }) => (
           <div
             key={product.slug}
-            className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm"
+            className="flex items-center gap-4 rounded-xl border border-border bg-card p-4"
           >
             <PlaceholderImage
               colors={product.colors}
-              emoji={product.emoji}
-              className="h-20 w-20 flex-shrink-0 rounded-xl"
+              className="h-20 w-20 flex-shrink-0 rounded-lg"
             />
             <div className="flex-1">
-              <p className="font-display font-bold">{product.name}</p>
+              <p className="font-display">{product.name}</p>
               <p className="text-sm text-foreground/60">${product.price} each</p>
             </div>
-            <div className="flex items-center rounded-full border-2 border-brand-purple">
+            <div className="flex items-center rounded-full border border-foreground/20">
               <button
                 type="button"
                 onClick={() => setQuantity(product.slug, quantity - 1)}
-                className="px-3 py-1 font-display font-bold text-brand-purple"
+                className="px-3 py-1 text-foreground/70 hover:text-foreground"
                 aria-label="Decrease quantity"
               >
                 −
               </button>
-              <span className="w-6 text-center font-display font-bold">
+              <span className="w-6 text-center text-sm font-medium">
                 {quantity}
               </span>
               <button
                 type="button"
                 onClick={() => setQuantity(product.slug, quantity + 1)}
-                className="px-3 py-1 font-display font-bold text-brand-purple"
+                className="px-3 py-1 text-foreground/70 hover:text-foreground"
                 aria-label="Increase quantity"
               >
                 +
               </button>
             </div>
-            <p className="w-16 text-right font-display font-bold">
+            <p className="w-16 text-right font-medium">
               ${product.price * quantity}
             </p>
             <button
               type="button"
               onClick={() => removeItem(product.slug)}
-              className="text-foreground/40 hover:text-brand-pink"
+              className="text-foreground/35 hover:text-brand-pink"
               aria-label={`Remove ${product.name}`}
             >
               ✕
@@ -106,15 +105,13 @@ export default function CartPage() {
       </div>
 
       <div className="mt-10 flex flex-col items-end gap-4">
-        <p className="font-display text-2xl font-bold">
-          Total: ${totalPrice}
-        </p>
+        <p className="font-display text-2xl">Total: ${totalPrice}</p>
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="button"
           onClick={handleCheckout}
           disabled={loading}
-          className="rounded-full bg-brand-purple px-10 py-3 font-display text-lg font-bold text-white shadow-md transition-transform hover:scale-105 disabled:opacity-60"
+          className="rounded-full bg-foreground px-10 py-3 text-sm font-medium tracking-wide text-background transition-opacity hover:opacity-85 disabled:opacity-40"
         >
           {loading ? "Redirecting…" : "Checkout"}
         </button>
